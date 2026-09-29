@@ -1,0 +1,17 @@
+.home-container {
+    width: 90%;
+    margin: 14px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        font-size: 30px;
+        font-family: ui-sans-serif;
+    }
+
+    .right-panel {
+        display: flex;
+        gap: 14px;
+    }
+}
