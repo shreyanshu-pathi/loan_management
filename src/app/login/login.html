@@ -1,0 +1,48 @@
+<div class="login-container">
+
+    <h1>Login</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+        <!-- email -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Enter email">
+            @if(loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched){
+            <mat-error>Email is required</mat-error>
+            }
+            @if(loginForm.controls['email'].hasError('email') && loginForm.controls['email'].touched){
+            <mat-error>Gmail should end with username@gmail.com</mat-error>
+            }
+            @if(loginForm.controls['email'].hasError('emailNotRegistered') && loginForm.controls['email'].touched){
+            <mat-error>Email is not registered</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- password -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password"
+                placeholder="Enter password">
+            <button mat-icon-button matSuffix type="button" (click)="hide.set(!hide())">
+                <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if(loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched){
+            <mat-error>Password is required</mat-error>
+            }
+            @if(loginForm.controls['password'].hasError('incorrectPassword') && loginForm.controls['password'].touched){
+            <mat-error>Password entered is incorrect</mat-error>
+            }
+        </mat-form-field>
+
+        <div class="link">
+            <p>Not a member? <span class="signupLink" routerLink="/signup">Register</span></p>
+        </div>
+
+        <div class="btn">
+            <button mat-flat-button type="submit" >Login</button>
+        </div>
+
+    </form>
+
+</div>

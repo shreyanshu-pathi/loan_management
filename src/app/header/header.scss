@@ -1,0 +1,26 @@
+.header-container {
+    width: 90%;
+    margin: 14px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left-panel {
+
+    h2 {
+        font-size: 30px;
+        font-family: ui-sans-serif;
+        cursor: pointer;
+        transition: 0.3s ease;
+         
+        &:hover{
+            transform: translateY(-3px);
+        }
+    }
+}
+
+    .right-panel {
+        display: flex;
+        gap: 14px;
+    }
+}

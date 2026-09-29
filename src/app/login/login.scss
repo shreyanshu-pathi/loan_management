@@ -1,0 +1,52 @@
+.login-container {
+    width: 50%;
+    margin: 30px auto;
+
+    h1 {
+        text-align: center;
+        font-size: 34px;
+    }
+
+    mat-form-field {
+        margin-bottom: 20px;
+
+        input {
+            font-size: 16px;
+            color: #202124;
+        }
+
+        mat-label {
+            color: #6b7280;
+        }
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .link {
+        p {
+            margin: 0;
+            font-size: 18px;
+
+            .signupLink{
+                color: blueviolet;
+                cursor: pointer;
+
+                &:hover{
+                    color: rgb(55, 5, 102);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+     .btn {
+        display: flex;
+        justify-content: center;
+
+        button {
+            font-size: 18px;
+        }
+    }
+}

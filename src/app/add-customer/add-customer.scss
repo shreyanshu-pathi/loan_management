@@ -1,0 +1,30 @@
+.addCustomer-container {
+    width: 90%;
+    margin: 14px auto;
+
+    mat-form-field {
+        margin-bottom: 20px;
+
+        input {
+            font-size: 16px;
+            color: #202124;
+        }
+
+        mat-label {
+            color: #6b7280;
+        }
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+
+        button {
+            font-size: 18px;
+        }
+    }
+}

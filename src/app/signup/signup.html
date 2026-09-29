@@ -1,0 +1,106 @@
+<div class="signup-container">
+
+    <h1>Register</h1>
+
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+
+        <!-- Name -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name" placeholder="Enter name">
+            @if(signupForm.controls['name'].hasError('required') && signupForm.controls['name'].touched){
+            <mat-error>Name is required</mat-error>
+            }
+            @if(signupForm.controls['name'].hasError('pattern') && signupForm.controls['name'].touched){
+            <mat-error>Please enter a valid name</mat-error>
+            }
+            @if(signupForm.controls['name'].hasError('minlength') && signupForm.controls['name'].touched){
+            <mat-error>Name must contain atleast 3 characters</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" formControlName="phone" maxlength="10" placeholder="Enter phone number">
+            @if(signupForm.controls['phone'].hasError('required') && signupForm.controls['phone'].touched){
+            <mat-error>Phone number is required</mat-error>
+            }
+            @if(signupForm.controls['phone'].hasError('pattern') && signupForm.controls['phone'].touched){
+            <mat-error>Only digits are allowed</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Gender -->
+        <div class="gender-section">
+            <label>Gender</label><br>
+            <mat-radio-group formControlName="gender">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Others">Others</mat-radio-button>
+            </mat-radio-group>
+            @if(signupForm.controls['gender'].hasError('required') && signupForm.controls['gender'].touched){
+            <mat-error>Please select your gender</mat-error>
+            }
+        </div>
+
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="username@gmail.com">
+            @if(signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched){
+            <mat-error>Email is required</mat-error>
+            }
+            @if(signupForm.controls['email'].hasError('email') && signupForm.controls['email'].touched){
+            <mat-error>Gmail should end with username@gmail.com</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password"
+                placeholder="Enter password">
+            <button mat-icon-button matSuffix type="button" (click)="hide.set(!hide())">
+                <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            @if(signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched){
+            <mat-error>Password is required</mat-error>
+            }
+            @if(signupForm.controls['password'].hasError('minlength') && signupForm.controls['password'].touched){
+            <mat-error>Password must contain 6 characters atleast</mat-error>
+            }
+            @if(signupForm.controls['password'].hasError('pattern') && signupForm.controls['password'].touched){
+            <mat-error>Password must contain an uppercase, a lowercase, a digit, a spl. character</mat-error>
+            }
+        </mat-form-field>
+
+        <!-- Confirm password -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput [type]="hideConfirmPassword() ? 'password' : 'text'" formControlName="confirmPassword"
+                placeholder="Enter confirm password">
+            <button mat-icon-button matSuffix (click)="hideConfirmPassword.set(!hideConfirmPassword())">
+                <mat-icon>{{hideConfirmPassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if(signupForm.controls['confirmPassword'].hasError('required') &&
+            signupForm.controls['confirmPassword'].touched){
+            <mat-error>Confirm Password is required</mat-error>
+            }
+            @if(signupForm.controls['confirmPassword'].hasError('passwordMismatch') &&
+            signupForm.controls['confirmPassword'].touched){
+            <mat-error>Passwords do not match</mat-error>
+            }
+        </mat-form-field>
+
+        <div class="link">
+            <p>Already a member? <span class="loginLink" routerLink="/login">Login</span></p>
+        </div>
+
+        <div class="btn">
+            <button mat-flat-button type="submit" [disabled]="signupForm.invalid">Register</button>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="viewCustomer-container">
+
+    <!-- User details -->
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let user">{{user.name}}</td>
+        </ng-container>
+
+        <!-- Phone -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone</th>
+            <td mat-cell *matCellDef="let user">{{user.phone}}</td>
+        </ng-container>
+
+        <!-- Gender -->
+         <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef>Gender</th>
+            <td mat-cell *matCellDef="let user">{{user.gender}}</td>
+        </ng-container>
+
+        <!-- Email -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let user">{{user.email}}</td>
+        </ng-container>
+
+        <!-- Loan status -->
+        <ng-container matColumnDef="loanStatus">
+            <th mat-header-cell *matHeaderCellDef>Loan status</th>
+            <td mat-cell *matCellDef="let user">
+                @if (user.loanStatus) {
+                {{ user.loanStatus }}
+                } @else {
+                Not Applied
+                }
+
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let user">
+            <div class="actionBtn">
+
+                <!-- edit -->
+                <button>Edit</button>
+
+                <!-- delete -->
+                <button>Delete</button>
+            </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
