@@ -1,6 +1,6 @@
 <div class="signup-container">
 
-    <h1>Register</h1>
+    <h1>{{ data ? 'Edit User Information' : 'Sign Up' }}</h1>
 
     <form [formGroup]="signupForm" (ngSubmit)="signup()">
 
@@ -27,7 +27,7 @@
             <mat-error>Phone number is required</mat-error>
             }
             @if(signupForm.controls['phone'].hasError('pattern') && signupForm.controls['phone'].touched){
-            <mat-error>Only digits are allowed</mat-error>
+            <mat-error>Only digits are allowed.</mat-error>
             }
         </mat-form-field>
 

@@ -1,0 +1,40 @@
+<div class="userProfile-container">
+
+    <!-- Display picture -->
+    <div class="profile-picture-container">
+        @if(data?.profileImage){
+        <img [src]="data.profileImage" alt="profile picture" class="profile-picture">
+        } @else {
+        <div class="profile-placeholder">
+            <mat-icon>person</mat-icon>
+        </div>
+        }
+
+        <button mat-mini-fab type="button" class="upload-btn" (click)="fileInput.click()">
+            <mat-icon>add</mat-icon>
+        </button>
+
+        <input #fileInput type="file" accept="image/*" hidden (change)="onProfilePictureSelected($event)">
+
+        @if(data?.profileImage) {
+        <button type="button" class="remove-photo" (click)="removeProfilePicture()">
+            Remove photo
+        </button>
+        }
+    </div>
+
+    <!-- Loggedin user's name -->
+    <div class="user-name">
+        {{data?.name}}
+    </div>
+
+    <!-- Sign in info edit -->
+    <div class="signinEdit">
+        <button (click)="editUserInformation()">Edit User Information</button>
+    </div>
+
+    <!-- customer loan application edit -->
+    <div class="loanEdit">
+        <button (click)="editLoanApplication()">Edit Loan Application Information</button>
+    </div>
+</div>

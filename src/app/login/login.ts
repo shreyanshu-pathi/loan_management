@@ -61,6 +61,7 @@ export class Login {
         }
 
         if (user) {
+           localStorage.setItem('currentUser', JSON.stringify(user));
           this.snackBar.open('Login successfully', 'Close', {
             duration: 3000
           });
@@ -80,4 +81,8 @@ export class Login {
       }
     });
   }
+
+  signup(): void {
+    this.router.navigate(['/signup']);
+}
 }

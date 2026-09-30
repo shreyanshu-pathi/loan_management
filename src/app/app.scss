@@ -1,0 +1,79 @@
+// <div class="total-loans-container">
+
+//     <div class="loan-icon">
+//         <mat-icon>account_balance</mat-icon>
+//     </div>
+
+//     <div class="loan-content">
+
+//         <p class="title">Total Loans</p>
+
+//         <h1>{{ totalLoans }}</h1>
+
+//         @if (totalLoans === 0) {
+//             <p class="message">
+//                 You haven't created any loans yet.
+//             </p>
+//         } @else {
+//             <p class="message">
+//                 You have created {{ totalLoans }} loan(s).
+//             </p>
+//         }
+
+//     </div>
+
+// </div>
+
+
+// import { Component, inject, OnInit } from '@angular/core';
+// import { SignupService } from '../signup-service';
+
+// @Component({
+//   selector: 'app-total-loans',
+//   templateUrl: './total-loans.html',
+//   styleUrl: './total-loans.scss'
+// })
+// export class TotalLoans implements OnInit {
+
+//   signupService = inject(SignupService);
+
+//   totalLoans = 0;
+//   currentUser: any = null;
+
+//   ngOnInit(): void {
+//     this.getTotalLoans();
+//   }
+
+//   getTotalLoans(): void {
+
+//     // Get logged-in user
+//     this.currentUser = JSON.parse(
+//       localStorage.getItem('currentUser') || 'null'
+//     );
+
+//     if (!this.currentUser) {
+//       this.totalLoans = 0;
+//       return;
+//     }
+
+//     // Get all loan applications
+//     this.signupService.getCustomers().subscribe({
+
+//       next: (customers) => {
+
+//         // Find loans belonging to logged-in user
+//         const userLoans = customers.filter(
+//           customer => customer.phone === this.currentUser.phone
+//         );
+
+//         this.totalLoans = userLoans.length;
+//       },
+
+//       error: (error) => {
+//         console.error('Failed to load loans', error);
+//         this.totalLoans = 0;
+//       }
+
+//     });
+//   }
+// }

@@ -1,25 +1,79 @@
 <div class="addCustomer-container">
 
-    <h2>Customer Form</h2>
+    <h2>Customer Form for Loan Application</h2>
 
-    <form [formGroup]="customerForm">
+    <form [formGroup]="customerForm" (ngSubmit)="applyForLoan()">
 
         <!-- Customer name -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Customer Name</mat-label>
             <input matInput type="text" formControlName="name" placeholder="Enter customer name">
+            @if(customerForm.controls['name'].hasError('required') && customerForm.controls['name'].touched){
+            <mat-error>Name is required</mat-error>
+            }
         </mat-form-field>
 
         <!-- Phone -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Customer Phone</mat-label>
             <input matInput type="tel" formControlName="phone" placeholder="Enter customer phone">
+            @if(customerForm.controls['phone'].hasError('required') && customerForm.controls['name'].touched){
+            <mat-error>Phone is required</mat-error>
+            }
         </mat-form-field>
 
         <!-- Address -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Customer Address</mat-label>
             <input matInput type="text" formControlName="address" placeholder="Enter customer address">
+            @if(customerForm.controls['address'].hasError('required') && customerForm.controls['name'].touched){
+            <mat-error>Address is required</mat-error>
+            }
+        </mat-form-field>
+
+        <div class="loan">
+
+
+            <!-- Loan type -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Loan Type</mat-label>
+                <mat-select formControlName="loanType">
+                    <mat-option value="Personal Loan">Personal Loan</mat-option>
+                    <mat-option value="Home Loan">Home Loan</mat-option>
+                    <mat-option value="Vehicle Loan">Vehicle Loan</mat-option>
+                    <mat-option value="Business Loan">Business Loan</mat-option>
+                    <mat-option value="Education Loan">Education Loan</mat-option>
+                </mat-select>
+                @if(customerForm.controls['loanType'].hasError('required') &&
+                customerForm.controls['loanType'].touched){
+                <mat-error>Loan type is required</mat-error>
+                }
+            </mat-form-field>
+
+            <!-- Loan Amount -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Loan Amount</mat-label>
+                <input matInput type="number" formControlName="loanAmount" placeholder="Enter loan amount">
+                @if(customerForm.controls['loanAmount'].hasError('required') &&
+                customerForm.controls['loanType'].touched){
+                <mat-error>Loan amount is required</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <!-- Loan Tenure -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Loan Tenure</mat-label>
+            <mat-select formControlName="loanTenure">
+                <mat-option value="1 Year">1 Year</mat-option>
+                <mat-option value="2 Years">2 Years</mat-option>
+                <mat-option value="3 Years">3 Years</mat-option>
+                <mat-option value="5 Years">5 Years</mat-option>
+                <mat-option value="10 Years">10 Years</mat-option>
+            </mat-select>
+            @if(customerForm.controls['loanTenure'].hasError('required') && customerForm.controls['loanType'].touched){
+            <mat-error>Loan tenure is required</mat-error>
+            }
         </mat-form-field>
 
         <!-- Notes -->
@@ -30,7 +84,8 @@
 
         <!-- Button -->
         <div class="btn">
-            <button mat-flat-button (click)="save()">Save</button>
+            <button mat-flat-button type="submit">Apply for Loan</button>
+            <button mat-raised-button (click)="cancel()">Cancel</button>
         </div>
     </form>
 

@@ -7,8 +7,15 @@
 
     <!-- right-panel -->
     <div class="right-panel">
+        @if(!isLoggedIn()){
         <button mat-flat-button (click)="signup()">Register</button>
         <button mat-raised-button (click)="login()">Login</button>
+        }
+
+        @if(isLoggedIn()){
+        <button mat-flat-button (click)="userProfile()">User Profile</button>
+        <button mat-raised-button (click)="logout()">Logout</button>
+        }
     </div>
 
 </div>

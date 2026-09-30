@@ -7,7 +7,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 import { SignupService } from '../signup-service';
 import { MatIconModule } from '@angular/material/icon';
-import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { email } from '@angular/forms/signals';
 
 const passwordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const password = control.parent?.get('password')?.value;
@@ -33,6 +35,8 @@ export class Signup {
   snackBar = inject(MatSnackBar);
   signupService = inject(SignupService);
 
+  data = inject(MAT_DIALOG_DATA, { optional: true });
+
   hide = signal(true);
   hideConfirmPassword = signal(true);
 
@@ -43,14 +47,24 @@ export class Signup {
       name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$'), Validators.minLength(3)]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       email: ['', [Validators.required, Validators.email]],
-      gender: [''],
+      gender: ['', Validators.required],
       password: ['', [
         Validators.required,
         Validators.minLength(6),
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).+$/)
       ]],
       confirmPassword: ['', [Validators.required, passwordValidator]]
-    })
+    });
+
+    // edit mode 
+    if (this.data) {
+      this.signupForm.patchValue({
+        name: this.data.name,
+        phone: this.data.phone,
+        gender: this.data.gender,
+        email: this.data.email,
+      });
+    }
   }
 
   // signup

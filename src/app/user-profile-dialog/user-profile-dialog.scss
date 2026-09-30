@@ -1,0 +1,136 @@
+.userProfile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+}
+
+.profile-picture-container {
+    position: relative;
+    width: 110px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture,
+.profile-placeholder {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    box-sizing: border-box;
+}
+
+.profile-picture {
+    display: block;
+    object-fit: cover;
+}
+
+.profile-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f3f4;
+    overflow: hidden;
+}
+
+.profile-placeholder mat-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+    color: #757575;
+}
+
+.upload-btn {
+    position: absolute;
+    right: -4px;
+    bottom: 40px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #5f6368;
+    border: 2px solid #dadce0;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f1f3f4;
+    }
+}
+
+.upload-btn mat-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.remove-photo {
+    margin-top: 8px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #d93025;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.user-name {
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+
+.signinEdit,
+.loanEdit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signinEdit button,
+.loanEdit button {
+    width: 280px;
+    padding: 12px 18px;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #3c4043;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.signinEdit button:hover,
+.loanEdit button:hover {
+    background-color: #f1f3f4;
+    border-color: #c4c7c5;
+}
+
+.loanEdit button {
+    background-color: #1a73e8;
+    color: white;
+    border-color: #1a73e8;
+}
+
+.loanEdit button:hover {
+    background-color: #1769d1;
+    border-color: #1769d1;
+}

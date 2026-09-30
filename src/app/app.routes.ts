@@ -5,6 +5,7 @@ import { Signup } from './signup/signup';
 import { Header } from './header/header';
 import { AddCustomer } from './add-customer/add-customer';
 import { ViewDetails } from './view-details/view-details';
+import { TotalLoans } from './total-loans/total-loans';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'login', component: Login },
     { path: 'header', component: Header },
     { path: 'addCustomer', component: AddCustomer },
-    { path: 'viewDetails', component: ViewDetails }
+    { path: 'viewDetails', component: ViewDetails },
+    { path: 'totalLoans', component: TotalLoans }
 ];

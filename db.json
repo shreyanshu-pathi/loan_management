@@ -15,6 +15,71 @@
       "password": "Ranveer@123",
       "confirmPassword": "Ranveer@123",
       "id": "44YQZYY69Ps"
+    },
+    {
+      "name": "Ranbir ",
+      "phone": "7784848787",
+      "email": "ranbir@gmail.com",
+      "gender": "Male",
+      "password": "Ranbir@123",
+      "confirmPassword": "Ranbir@123",
+      "id": "-6dmybiGIK4"
+    },
+    {
+      "name": "Vicky",
+      "phone": "8855213640",
+      "email": "vicky@gmail.com",
+      "gender": "Male",
+      "password": "Vicky@123",
+      "confirmPassword": "Vicky@123",
+      "id": "SFlfDhYuwF0"
     }
-  ]
+  ],
+  "customers": [
+    {
+      "name": "Qwertyy",
+      "phone": "1212121212",
+      "address": "123-123, qwerty, India",
+      "loanType": "Personal Loan",
+      "loanAmount": 300000,
+      "loanTenure": "1 Year",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "qAOtbCV092w"
+    },
+    {
+      "name": "Qwertyy",
+      "phone": "1212121212",
+      "address": "123-123, qwerty, India",
+      "loanType": "Personal Loan",
+      "loanAmount": 300000,
+      "loanTenure": "1 Year",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "5uPbRu0yOhc"
+    },
+    {
+      "name": "Qwertyy",
+      "phone": "1212121212",
+      "address": "123-123, qwerty, India",
+      "loanType": "Personal Loan",
+      "loanAmount": 300000,
+      "loanTenure": "1 Year",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "lJrvNDGUlz4"
+    },
+    {
+      "name": "Ranveer",
+      "phone": "9876543210",
+      "address": "1234-123, asdf",
+      "loanType": "Vehicle Loan",
+      "loanAmount": 500000,
+      "loanTenure": "2 Years",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "h1i8hED3z7I"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

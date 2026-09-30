@@ -1,0 +1,33 @@
+.totalLoans-container {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.loan-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+}
+
+.loan-content h1 {
+    margin: 4px 0;
+    font-size: 32px;
+}
+
+.message {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+}

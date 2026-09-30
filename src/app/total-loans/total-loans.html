@@ -1,0 +1,18 @@
+<div class="totalLoans-container">
+
+    <div class="loan-content">
+        <p class="title">Total Loans</p>
+        <h1>{{ totalLoans }}</h1>
+
+        @if(totalLoans === 0){
+        <p class="message">
+            You haven't created any loans yet.
+        </p>
+        } @else {
+        <p class="message">
+            You have created {{ totalLoans }}loans.
+        </p>
+        }
+    </div>
+
+</div>
