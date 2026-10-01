@@ -1,79 +1,79 @@
-// <div class="total-loans-container">
+// calculateInterest(): void {
 
-//     <div class="loan-icon">
-//         <mat-icon>account_balance</mat-icon>
-//     </div>
+//   const loanAmount =
+//     Number(this.customerForm.get('loanAmount')?.value) || 0;
 
-//     <div class="loan-content">
+//   const interestAmount =
+//     Number(this.customerForm.get('interestAmount')?.value) || 0;
 
-//         <p class="title">Total Loans</p>
+//   const interestType =
+//     this.customerForm.get('interestType')?.value;
 
-//         <h1>{{ totalLoans }}</h1>
-
-//         @if (totalLoans === 0) {
-//             <p class="message">
-//                 You haven't created any loans yet.
-//             </p>
-//         } @else {
-//             <p class="message">
-//                 You have created {{ totalLoans }} loan(s).
-//             </p>
-//         }
-
-//     </div>
-
-// </div>
-
-
-// import { Component, inject, OnInit } from '@angular/core';
-// import { SignupService } from '../signup-service';
-
-// @Component({
-//   selector: 'app-total-loans',
-//   templateUrl: './total-loans.html',
-//   styleUrl: './total-loans.scss'
-// })
-// export class TotalLoans implements OnInit {
-
-//   signupService = inject(SignupService);
-
-//   totalLoans = 0;
-//   currentUser: any = null;
-
-//   ngOnInit(): void {
-//     this.getTotalLoans();
-//   }
-
-//   getTotalLoans(): void {
-
-//     // Get logged-in user
-//     this.currentUser = JSON.parse(
-//       localStorage.getItem('currentUser') || 'null'
-//     );
-
-//     if (!this.currentUser) {
-//       this.totalLoans = 0;
-//       return;
-//     }
-
-//     // Get all loan applications
-//     this.signupService.getCustomers().subscribe({
-
-//       next: (customers) => {
-
-//         // Find loans belonging to logged-in user
-//         const userLoans = customers.filter(
-//           customer => customer.phone === this.currentUser.phone
-//         );
-
-//         this.totalLoans = userLoans.length;
-//       },
-
-//       error: (error) => {
-//         console.error('Failed to load loans', error);
-//         this.totalLoans = 0;
-//       }
-
+//   if (!interestAmount || !interestType) {
+//     this.customerForm.patchValue({
+//       totalInterest: 0,
+//       totalRepayment: loanAmount
 //     });
+
+//     return;
 //   }
+
+//   let monthlyInterest = 0;
+
+//   switch (interestType) {
+
+//     case 'Daily':
+//       monthlyInterest = interestAmount * 30;
+//       break;
+
+//     case 'Weekly':
+//       monthlyInterest = interestAmount * 4;
+//       break;
+
+//     case 'Monthly':
+//       monthlyInterest = interestAmount;
+//       break;
+
+//     case 'Quarterly':
+//       monthlyInterest = interestAmount / 3;
+//       break;
+
+//     case '6 Months':
+//       monthlyInterest = interestAmount / 6;
+//       break;
+//   }
+
+//   const totalInterest =
+//     monthlyInterest * this.getNumberOfMonths();
+
+//   const totalRepayment =
+//     loanAmount + totalInterest;
+
+//   this.customerForm.patchValue({
+//     totalInterest: Math.round(totalInterest * 100) / 100,
+//     totalRepayment: Math.round(totalRepayment * 100) / 100
+//   });
+// }
+
+
+// getNumberOfMonths(): number {
+
+//   const start =
+//     this.customerForm.get('loanStartDate')?.value;
+
+//   const end =
+//     this.customerForm.get('loanEndDate')?.value;
+
+//   if (!start || !end) {
+//     return 0;
+//   }
+
+//   const startDate = new Date(start);
+//   const endDate = new Date(end);
+
+//   const months =
+//     (endDate.getFullYear() - startDate.getFullYear()) * 12 +
+//     (endDate.getMonth() - startDate.getMonth());
+
+//   return Math.max(months, 0);
 // }

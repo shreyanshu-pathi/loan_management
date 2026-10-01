@@ -54,14 +54,14 @@ export class Login {
           return;
         }
 
-        if(user.password !== password){
+        if (user.password !== password) {
           this.loginForm.controls['password'].setErrors({ incorrectPassword: true });
           this.loginForm.controls['password'].markAsTouched();
           return;
         }
 
         if (user) {
-           localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(user));
           this.snackBar.open('Login successfully', 'Close', {
             duration: 3000
           });
@@ -84,5 +84,5 @@ export class Login {
 
   signup(): void {
     this.router.navigate(['/signup']);
-}
+  }
 }

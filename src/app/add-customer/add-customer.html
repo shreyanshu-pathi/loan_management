@@ -33,7 +33,6 @@
 
         <div class="loan">
 
-
             <!-- Loan type -->
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Loan Type</mat-label>
@@ -59,10 +58,11 @@
                 <mat-error>Loan amount is required</mat-error>
                 }
             </mat-form-field>
+
         </div>
 
         <!-- Loan Tenure -->
-        <mat-form-field appearance="outline" class="full-width">
+        <!-- <mat-form-field appearance="outline" class="full-width">
             <mat-label>Loan Tenure</mat-label>
             <mat-select formControlName="loanTenure">
                 <mat-option value="1 Year">1 Year</mat-option>
@@ -74,7 +74,62 @@
             @if(customerForm.controls['loanTenure'].hasError('required') && customerForm.controls['loanType'].touched){
             <mat-error>Loan tenure is required</mat-error>
             }
+        </mat-form-field> -->
+
+        <div class="date">
+
+            <!-- Loan start date -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Loan Start Date</mat-label>
+                <input matInput [matDatepicker]="startPicker" formControlName="loanStartDate">
+                <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+                <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Loan end date -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Loan End Date</mat-label>
+                <input matInput [matDatepicker]="endPicker" formControlName="loanEndDate">
+                <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+
+        <!-- Interest Type -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Interest Type</mat-label>
+            <mat-select formControlName="interestType" (selectionChange)="calculateInterest()">
+                @for(type of interestTypes; track type){
+                <mat-option value="type">{{ type }}</mat-option>
+                }
+            </mat-select>
         </mat-form-field>
+
+        <!-- Interest Amount -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Interest Amount</mat-label>
+            <input matInput type="number" formControlName="interestAmount" (input)="calculateInterest()">
+            <span matTextPrefix>₹&nbsp;</span>
+        </mat-form-field>
+
+        <!-- Interest Period -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Interest Period</mat-label>
+            <input matInput formControlName="interestPeriod" placeholder="Example: 10 Months">
+        </mat-form-field>
+
+        <!-- Total Interest -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Total Interest</mat-label>
+            <input matInput type="number" formControlName="totalInterest" readonly>
+        </mat-form-field>
+
+        <!-- Total Repayment -->
+         <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Total Repayment</mat-label>
+            <input matInput type="number" formControlName="totalRepayment" readonly>
+         </mat-form-field>
 
         <!-- Notes -->
         <mat-form-field appearance="outline" class="full-width">
@@ -85,7 +140,7 @@
         <!-- Button -->
         <div class="btn">
             <button mat-flat-button type="submit">Apply for Loan</button>
-            <button mat-raised-button (click)="cancel()">Cancel</button>
+            <button mat-raised-button type="button" (click)="cancel()">Cancel</button>
         </div>
     </form>
 

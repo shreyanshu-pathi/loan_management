@@ -33,6 +33,15 @@
       "password": "Vicky@123",
       "confirmPassword": "Vicky@123",
       "id": "SFlfDhYuwF0"
+    },
+    {
+      "name": "Varun Dhawan",
+      "phone": "7539514628",
+      "email": "varun@gmail.com",
+      "gender": "Male",
+      "password": "Varun@123",
+      "confirmPassword": "Varun@123",
+      "id": "Ld4i8rww7Lk"
     }
   ],
   "customers": [
@@ -48,28 +57,6 @@
       "id": "qAOtbCV092w"
     },
     {
-      "name": "Qwertyy",
-      "phone": "1212121212",
-      "address": "123-123, qwerty, India",
-      "loanType": "Personal Loan",
-      "loanAmount": 300000,
-      "loanTenure": "1 Year",
-      "notes": "",
-      "loanStatus": "Pending",
-      "id": "5uPbRu0yOhc"
-    },
-    {
-      "name": "Qwertyy",
-      "phone": "1212121212",
-      "address": "123-123, qwerty, India",
-      "loanType": "Personal Loan",
-      "loanAmount": 300000,
-      "loanTenure": "1 Year",
-      "notes": "",
-      "loanStatus": "Pending",
-      "id": "lJrvNDGUlz4"
-    },
-    {
       "name": "Ranveer",
       "phone": "9876543210",
       "address": "1234-123, asdf",
@@ -79,7 +66,61 @@
       "notes": "",
       "loanStatus": "Pending",
       "id": "h1i8hED3z7I"
+    },
+    {
+      "name": "Ranveer",
+      "phone": "9876543210",
+      "address": "123-987",
+      "loanType": "Home Loan",
+      "loanAmount": 2500000,
+      "loanTenure": "2 Years",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "tiLxUgJXO8g"
+    },
+    {
+      "name": "Ranveer",
+      "phone": "9876543210",
+      "address": "123/asdf",
+      "loanType": "Education Loan",
+      "loanAmount": 500000,
+      "loanTenure": "2 Years",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "YSZYPjbS70E"
+    },
+    {
+      "name": "Ranveer",
+      "phone": "9876543210",
+      "address": "123/asd",
+      "loanType": "Business Loan",
+      "loanAmount": 2500000,
+      "loanTenure": "2 Years",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "9ZoKByM_B-0"
+    },
+    {
+      "name": "Asdff",
+      "phone": "1212121212",
+      "address": "12-12, asdf",
+      "loanType": "Education Loan",
+      "loanAmount": 1000000,
+      "loanTenure": "2 Years",
+      "notes": "Higher studies",
+      "loanStatus": "Pending",
+      "id": "XwUZOuttDvk"
+    },
+    {
+      "name": "Qwerty",
+      "phone": "1212121212",
+      "address": "123-67, zxcv",
+      "loanType": "Home Loan",
+      "loanAmount": 500000,
+      "loanTenure": "3 Years",
+      "notes": "",
+      "loanStatus": "Pending",
+      "id": "nqTQ_sh95zE"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }

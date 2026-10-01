@@ -1,6 +1,10 @@
 .addCustomer-container {
     width: 90%;
     margin: 14px auto;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
 
     mat-form-field {
         margin-bottom: 6px;
@@ -19,7 +23,8 @@
         width: 100%;
     }
 
-    .loan {
+    .loan,
+    .date {
         display: flex;
         gap: 50px;
     }

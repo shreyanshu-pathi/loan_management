@@ -1,18 +1,83 @@
 <div class="totalLoans-container">
 
     <div class="loan-content">
-        <p class="title">Total Loans</p>
-        <h1>{{ totalLoans }}</h1>
+
+        <p class="title">Total Loans - {{ totalLoans }}</p>
+
+        <!-- <h1>{{ totalLoans }}</h1> -->
 
         @if(totalLoans === 0){
-        <p class="message">
-            You haven't created any loans yet.
-        </p>
+        <p class="message"> You haven't created any loans yet. </p>
         } @else {
-        <p class="message">
-            You have created {{ totalLoans }}loans.
-        </p>
+        <p class="message">You have created {{ totalLoans }} loans.</p>
         }
+
+    </div>
+</div>
+
+<!-- loan details -->
+<div class="loans-section">
+
+    <div class="loan-header">
+        <h2>Your loan applications</h2>
+        <input type="search" [(ngModel)]="searchText" (input)="searchLoans()" placeholder="Search for loan type">
     </div>
 
+    @for(loan of filteredLoans; track loan.id){
+
+    <div class="loan-card">
+        
+        <div class="loan-card-header">
+            <h3>{{ loan.loanType }}</h3>
+            <span class="status">{{ loan.loanStatus }}</span>
+        </div>
+
+        <div class="loan-details">
+            <div class="detail">
+                <span>Customer name</span>
+                <strong>{{loan.name}}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Phone</span>
+                <strong>{{loan.phone}}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Address</span>
+                <strong>{{loan.address}}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Loan Type</span>
+                <strong>{{loan.loanType}}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Loan Amount</span>
+                <strong>{{loan.loanAmount}}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Loan Tenure</span>
+                <strong>{{loan.loanTenure}}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Notes</span>
+                <strong>{{ loan.notes || 'No notes' }}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Loan Status</span>
+                <strong>{{ loan.loanStatus }}</strong>
+            </div>
+        </div>
+
+        <div class="loan-actions">
+            <button mat-flat-button (click)="editLoan(loan)">Edit</button>
+            <button mat-raised-button (click)="deleteLoan(loan.id)">Delete</button>
+        </div>
+    </div>
+    }
 </div>
